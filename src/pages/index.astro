@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ProductGrid from '../components/ProductGrid.astro';
+import WaitlistForm from '../components/WaitlistForm.astro';
+import data from '../data/products.json';
+---
+<BaseLayout>
+  <Hero />
+  <ProductGrid />
+
+  <section class="about" id="about">
+    <div class="container about__inner">
+      <h2>Premium stupid, done right.</h2>
+      <p>
+        Loud designs, quiet comfort. Every pair is {data.brand.fabric.toLowerCase()}
+        — the kind of gag gift people actually keep wearing. This isn't a store yet;
+        it's the front of the line.
+      </p>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="container final__inner">
+      <h2>Be first. Get a launch discount.</h2>
+      <p>Early-list members get notified the moment we go live — plus a members-only launch code.</p>
+      <WaitlistForm variant="dark" />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about { padding: 56px 0; }
+  .about__inner { max-width: 760px; text-align: center; margin: 0 auto; }
+  .about h2 { font-size: 28px; margin-bottom: 10px; }
+  .about p { color: #555; font-size: 18px; }
+  .final { padding: 10px 0 20px; }
+  .final__inner {
+    background: var(--ink);
+    color: #fff;
+    border-radius: 24px;
+    text-align: center;
+    padding: 56px 22px;
+    max-width: var(--maxw);
+  }
+  .final h2 { font-size: clamp(26px, 4vw, 34px); margin-bottom: 8px; }
+  .final p { color: #c9c3d6; margin-bottom: 22px; }
+</style>

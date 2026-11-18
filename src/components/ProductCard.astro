@@ -1,0 +1,48 @@
+---
+interface Product {
+  slug: string;
+  name: string;
+  tagline: string;
+  badge?: string;
+  image: string;
+  price: string;
+}
+interface Props {
+  product: Product;
+  cta?: string;
+}
+const { product, cta = 'Notify me' } = Astro.props;
+---
+<article class="card">
+  <a href={`/products/${product.slug}`} class="card__media">
+    <img src={product.image} alt={product.name} loading="lazy" width="500" height="500" />
+    {product.badge && <span class="badge card__badge">{product.badge}</span>}
+  </a>
+  <div class="card__body">
+    <h3 class="card__name"><a href={`/products/${product.slug}`}>{product.name}</a></h3>
+    <p class="card__tag">{product.tagline}</p>
+    <p class="card__price">${product.price}</p>
+    <a class="btn btn--sm btn--block" href="/#join">{cta}</a>
+  </div>
+</article>
+
+<style>
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,.10); }
+  .card__media { position: relative; display: block; background: #f4f4f6; aspect-ratio: 1 / 1; overflow: hidden; }
+  .card__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+  .card:hover .card__media img { transform: scale(1.04); }
+  .card__badge { position: absolute; top: 12px; left: 12px; }
+  .card__body { padding: 16px; text-align: center; }
+  .card__name { font-size: 20px; margin-bottom: 4px; }
+  .card__tag { color: var(--ink-soft); font-size: 14px; min-height: 40px; }
+  .card__price { font-weight: 800; margin: 6px 0 12px; font-size: 17px; }
+</style>

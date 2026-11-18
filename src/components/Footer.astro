@@ -1,0 +1,16 @@
+---
+import data from '../data/products.json';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container">
+    <p class="hyg">{data.brand.returnsPolicy}</p>
+    <p class="copy">© {year} {data.brand.name} · {data.brand.shipping}</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer { border-top: 1px solid var(--line); padding: 30px 0; margin-top: 40px; text-align: center; }
+  .hyg { color: #999; font-size: 13px; max-width: 640px; margin: 0 auto 8px; }
+  .copy { color: #b3b3b3; font-size: 13px; }
+</style>

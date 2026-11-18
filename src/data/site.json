@@ -1,0 +1,4 @@
+{
+  "ghlWebhookUrl": "",
+  "note": "Paste your GoHighLevel Inbound Webhook URL above. In GHL: Automation > Workflows > add an 'Inbound Webhook' trigger, copy its URL here. The waitlist form will POST { email, source, tag } to it. Leave empty to run the form in demo mode (shows the success message without sending)."
+}

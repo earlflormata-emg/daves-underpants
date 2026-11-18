@@ -1,0 +1,27 @@
+---
+import ProductCard from './ProductCard.astro';
+import data from '../data/products.json';
+const { products } = data;
+---
+<section class="drop" id="drop">
+  <div class="container">
+    <h2 class="drop__title rise">Meet the first drop</h2>
+    <p class="drop__sub">Previews below · {data.brand.fabric} · ${data.brand.price} each</p>
+    <div class="grid">
+      {products.map((p) => <ProductCard product={p} />)}
+    </div>
+  </div>
+</section>
+
+<style>
+  .drop { padding: 64px 0 10px; }
+  .drop__title { text-align: center; font-size: clamp(26px, 4vw, 34px); margin-bottom: 6px; }
+  .drop__sub { text-align: center; color: #777; margin-bottom: 30px; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  @media (max-width: 860px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .grid { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,81 @@
+{
+  "brand": {
+    "name": "Dave's Underpants",
+    "tagline": "Underwear this stupid deserves a waiting list.",
+    "voice": "Premium stupid — funny novelty, polished execution. Loud designs, quiet comfort.",
+    "currency": "USD",
+    "price": "64.00",
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "returnsPolicy": "For health & hygiene reasons, underwear can't be returned or exchanged — all sales are final.",
+    "shipping": "Free shipping on orders over $75.",
+    "fabric": "Full-print cut-and-sew. Ultra-soft matte-cotton feel with 4-way stretch."
+  },
+  "products": [
+    {
+      "slug": "the-space-needle",
+      "name": "The Space Needle",
+      "tagline": "Fully extended observation deck.",
+      "badge": "Coming Soon",
+      "image": "/images/space-needle.jpg",
+      "price": "64.00",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "description": "It's not the size of the tower — it's how you use the view. The Space Needle boxer brief features a fully-extended observation deck front print set against a dusk Seattle skyline. Ultra-soft matte-cotton feel with 4-way stretch. Premium stupid, done right.",
+      "care": "Machine wash cold, tumble dry low, do not iron the print."
+    },
+    {
+      "slug": "the-banana",
+      "name": "The Banana",
+      "tagline": "100% natural. Peel here.",
+      "badge": "Coming Soon",
+      "image": "/images/banana.jpg",
+      "price": "64.00",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "description": "100% natural, 100% ridiculous. The Banana boxer brief features a fully-peeled front print with a \"Peel Here\" arrow pointing exactly where you'd expect. Ultra-soft, breathable matte-cotton feel with a 4-way stretch that moves with you. The best gag gift that's actually comfortable enough to wear every day.",
+      "care": "Machine wash cold, tumble dry low, do not iron the print."
+    },
+    {
+      "slug": "the-elephant",
+      "name": "The Elephant",
+      "tagline": "Never forgets. Never small.",
+      "badge": "Coming Soon",
+      "image": "/images/elephant.jpg",
+      "price": "64.00",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "description": "Never forgets. Never small. The Elephant boxer brief leads trunk-first with a bold, cheeky front print for people who don't take their underwear (or themselves) too seriously. Ultra-soft matte-cotton feel with 4-way stretch.",
+      "care": "Machine wash cold, tumble dry low, do not iron the print."
+    },
+    {
+      "slug": "the-volcano",
+      "name": "The Volcano",
+      "tagline": "Warning: may erupt without notice.",
+      "badge": "Coming Soon",
+      "image": "/images/volcano.jpg",
+      "price": "64.00",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "description": "Warning: may erupt without notice. The Volcano boxer brief runs hot with a molten full-front eruption print. Ultra-soft matte-cotton feel with 4-way stretch. A gag gift that's actually comfortable enough to wear every day.",
+      "care": "Machine wash cold, tumble dry low, do not iron the print."
+    },
+    {
+      "slug": "the-speedometer",
+      "name": "The Speedometer",
+      "tagline": "0 to 60 in record time.",
+      "badge": "Coming Soon",
+      "image": "/images/speedometer.jpg",
+      "price": "64.00",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "description": "0 to 60 in record time. The Speedometer boxer brief clocks your performance with a full-front gauge print. Ultra-soft matte-cotton feel with 4-way stretch. Loud design, quiet comfort.",
+      "care": "Machine wash cold, tumble dry low, do not iron the print."
+    },
+    {
+      "slug": "the-hot-dog",
+      "name": "The Hot Dog",
+      "tagline": "Everything's better loaded.",
+      "badge": "Coming Soon",
+      "image": "/images/hotdog.jpg",
+      "price": "64.00",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "description": "Everything's better loaded. The Hot Dog boxer brief piles on the toppings with a fully-loaded front print. Ultra-soft matte-cotton feel with 4-way stretch. The best gag gift that people actually keep wearing.",
+      "care": "Machine wash cold, tumble dry low, do not iron the print."
+    }
+  ]
+}

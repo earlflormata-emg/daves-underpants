@@ -1,0 +1,74 @@
+---
+import site from '../data/site.json';
+interface Props {
+  variant?: 'light' | 'dark';
+  id?: string;
+}
+const { variant = 'light', id } = Astro.props;
+const endpoint = site.ghlWebhookUrl || '';
+---
+<form class={`wl wl--${variant}`} id={id} data-waitlist data-endpoint={endpoint}>
+  <input type="email" name="email" placeholder="you@email.com" required aria-label="Email address" />
+  <button class="btn" type="submit">Join the List</button>
+  <p class="wl__msg" data-msg hidden>You're on the list! We'll email you the second these drop. 🍌</p>
+  <p class="wl__err" data-err hidden>Something went wrong — please try again.</p>
+</form>
+
+<script>
+  // Astro + GHL: POSTs the email to your GoHighLevel inbound webhook.
+  // Set the URL in src/data/site.json (ghlWebhookUrl). Empty = demo mode.
+  document.querySelectorAll('form[data-waitlist]').forEach((node) => {
+    const form = node as HTMLFormElement;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = (form.querySelector('input[name="email"]') as HTMLInputElement)?.value?.trim();
+      if (!email) return;
+      const endpoint = form.getAttribute('data-endpoint') || '';
+      const msg = form.querySelector('[data-msg]') as HTMLElement | null;
+      const err = form.querySelector('[data-err]') as HTMLElement | null;
+      const btn = form.querySelector('button') as HTMLButtonElement | null;
+      if (err) err.hidden = true;
+      if (btn) { btn.disabled = true; btn.textContent = 'Joining…'; }
+      try {
+        if (endpoint) {
+          const res = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, source: "daves-underpants-waitlist", tag: 'waitlist' }),
+          });
+          if (!res.ok) throw new Error('bad status');
+        }
+        if (msg) msg.hidden = false;
+        form.reset();
+      } catch {
+        if (err) err.hidden = false;
+      } finally {
+        if (btn) { btn.disabled = false; btn.textContent = 'Join the List'; }
+      }
+    });
+  });
+</script>
+
+<style>
+  .wl { display: flex; gap: 10px; max-width: 520px; margin: 0 auto; flex-wrap: wrap; }
+  .wl input {
+    flex: 1 1 240px;
+    padding: 16px 18px;
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    font-size: 16px;
+    background: #fff;
+  }
+  .wl--dark input { border-color: #fff; }
+  .wl__msg, .wl__err {
+    flex-basis: 100%;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+  }
+  .wl__msg { background: #eafff7; color: #0a7d63; border: 1px solid #b7f0df; }
+  .wl__err { background: #fff1f0; color: #b4232a; border: 1px solid #f3c6c6; }
+  .wl--dark .wl__msg { background: rgba(255,255,255,.1); color: #d6fff3; border-color: rgba(255,255,255,.25); }
+  @media (max-width: 520px) { .wl { flex-direction: column; } }
+</style>

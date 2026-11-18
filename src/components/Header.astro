@@ -1,0 +1,42 @@
+---
+import data from '../data/products.json';
+---
+<div class="announce">🍌 Launching soon · Join the list for early access + a launch-day discount</div>
+<header class="site-header">
+  <div class="container inner">
+    <a class="logo" href="/">
+      <img src="/images/logo.jpg" alt={data.brand.name} width="56" height="56" />
+    </a>
+    <nav class="nav">
+      <a href="/#drop">The Drop</a>
+      <a href="/#about">About</a>
+      <a class="btn btn--sm" href="/#join">Join the List</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .announce {
+    background: var(--ink);
+    color: #fff;
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: .05em;
+    padding: 9px 12px;
+  }
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250, 250, 250, .85);
+    backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .inner { display: flex; align-items: center; justify-content: space-between; padding-top: 10px; padding-bottom: 10px; }
+  .logo img { height: 48px; width: 48px; border-radius: 10px; display: block; }
+  .nav { display: flex; align-items: center; gap: 22px; font-weight: 600; font-size: 15px; }
+  .nav a:not(.btn):hover { color: var(--pop); }
+  @media (max-width: 620px) {
+    .nav a:not(.btn) { display: none; }
+  }
+</style>
